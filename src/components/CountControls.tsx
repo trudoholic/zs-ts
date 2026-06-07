@@ -1,7 +1,12 @@
+import { useShallow } from 'zustand/react/shallow'
 import { useCounterStore } from '../store/useCounterStore'
 
 function CountControls() {
-  const { decreaseCount, increaseCount, removeAll } = useCounterStore()
+  const { decreaseCount, increaseCount, removeAll } = useCounterStore(useShallow(s => ({
+    decreaseCount: s.decreaseCount,
+    increaseCount: s.increaseCount,
+    removeAll: s.removeAll,
+  })))
 
   return (
     <div>

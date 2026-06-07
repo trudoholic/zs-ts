@@ -1,7 +1,7 @@
 import { useCounterStore } from '../store/useCounterStore'
 
 function CountDisplay() {
-  const { count } = useCounterStore()
+  const count = useCounterStore(s => s.count)
 
   return (
     <div>
